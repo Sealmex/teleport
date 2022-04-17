@@ -1,4 +1,4 @@
-name: Rust
+name: Rust build for Production
 
 on:
   push:
