@@ -7,13 +7,16 @@ fn main() {
     println!("Waiting for connections...");
     for stream in listen.incoming() {
         let stream = stream.unwrap();
-        handle_stream(stream);
+        handle_transfer(stream);
     }
 }
 
-fn handle_stream(mut stream: TcpStream) {
-    let mut body = Vec::new();
+fn handle_transfer(mut stream: TcpStream) {
+    let mut data = Vec::new();
     println!("Connection establised with {}", stream.peer_addr().unwrap());
-    stream.read_to_end(&mut body).unwrap();
-    println!("Reading message, Client says {}", from_utf8(&body).unwrap());
+    match stream.read_to_end(&mut data) {
+        Ok(_) => println!("Read data."),
+        Err(_) => println!("Failed to read Data.")
+    }
+    println!("Data is {}", from_utf8(&data).unwrap())
 }
