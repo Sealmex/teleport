@@ -1,2 +1,2 @@
-# TODO
-Remove threading code as project plan has changed
+# Teleport
+### A Simple file sharing program written on [**Rust**](https://rust-lang.org)
