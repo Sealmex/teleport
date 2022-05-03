@@ -31,7 +31,10 @@ fn handle_data(data_received: Vec::<u8>) {
     fn save_data(filename: &str, filedata: Vec::<u8>){
         println!("Head = {}", filename);
         println!("Data = {:?}", filedata);
-        write(filename, filedata).expect("Failed to write to file.");
+        match write(filename, filedata) {
+            Ok(_) => println!("File saved!"),
+            Err(_) => println!("File failed to save!")
+        }
     }
     let index = data.iter().position(|&x|x == 0).unwrap();
     
