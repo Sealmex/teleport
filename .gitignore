@@ -1,5 +1,8 @@
+# --- Ignore compiled stuff
 /target
-
-test.txt
-Cargo.lock
 src/client
+# --- #
+
+# Misc
+*.txt
+Cargo.lock
