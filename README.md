@@ -2,7 +2,7 @@
 ### A Simple file sharing program written on [**Rust**](https://rust-lang.org)
 
 # Todo
-* # Rewrite the entire codebase to use seperate stream instead of one 
+* # Rewrite the entire codebase to use seperate streams instead of one 
 * Finish it
   * User arguments
   * Listen to different addresses
