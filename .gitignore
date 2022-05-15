@@ -1,8 +1,10 @@
 # --- Ignore compiled stuff
 /target
-src/client
+src/main_client
+main_client
 # --- #
 
 # Misc
+*.png
 *.txt
 Cargo.lock

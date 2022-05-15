@@ -2,7 +2,7 @@ use std::io::prelude::*;
 use std::str::{from_utf8};
 use std::net::{TcpListener, TcpStream};
 use std::fs::{read, write};
-pub fn main(){
+pub fn main() {
     // Main listener
     // Col 31-53 --- Todo: User argument to change what address to listen to
     let listen = TcpListener::bind("127.0.0.1:8000").unwrap();
@@ -27,7 +27,7 @@ fn handle_stream(mut stream: TcpStream) {
             }
             // --- //
             match write(filename, filedata) {
-                Ok(_) => println!("File saved!"),
+                Ok(_) => {println!("File saved!");},
                 Err(_) => println!("File failed to save!")
             }
         }
@@ -48,6 +48,7 @@ fn handle_stream(mut stream: TcpStream) {
         Ok(_) => println!("Data Read"),
         Err(_) => println!("Failed to Read Data")
     }
+    println!("{:?}", data);
     handle_data(data);
 }
 
