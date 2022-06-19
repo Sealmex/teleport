@@ -2,7 +2,6 @@
 ### A Simple file sharing program written on [**Rust**](https://rust-lang.org), Trying to be as user friendly a cli program can be.
 
 # TODO
-* # Rewrite the entire codebase to use seperate stream instead of one 
 * Finish it
   - [ ] Listen to different addresses.
   - [ ] Verbose output. *additional details* // *Maybe implement using macros?*
