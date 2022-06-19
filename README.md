@@ -9,3 +9,5 @@
 
 ### Dev Logs
   - Major Refactoring Changes. Using **lib.rs** than trying to use **mod** on stuff, **main.rs** is now going to handle user inputs and anything that might be added in the future, still wondering on how to do verbose output though. Planning to use serde to send json data so i dont have to make my own unreliable and shitty parser.
+
+> This project is supposed to be my way to learn **Rust** and Programming in General. This explains my indecisive behaviour on this project because Im trying to learn how to do stuff.
