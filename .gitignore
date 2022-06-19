@@ -1,7 +1,7 @@
-# --- Ignore compiled stuff
+# --- Ignore compiled stuff and testing stuff
 /target
-src/main_client
-main_client
+test.rs
+test
 # --- #
 
 # Misc

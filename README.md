@@ -8,5 +8,5 @@
   - [ ] Verbose output. *additional details* // *Maybe implement using macros?*
   - [ ] Change the filename after transfer finish // *Maybe Implement by changing the filename after saving*
 
-### Logs
+### Dev Logs
   - Major Refactoring Changes. Using **lib.rs** than trying to use **mod** on stuff, **main.rs** is now going to handle user inputs and anything that might be added in the future, still wondering on how to do verbose output though. Planning to use serde to send json data so i dont have to make my own unreliable and shitty parser.
