@@ -5,6 +5,7 @@ test
 # --- #
 
 # Misc
+.vscode
 *.png
 *.txt
 Cargo.lock
