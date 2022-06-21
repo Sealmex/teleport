@@ -1,6 +1,4 @@
-#![feature(fs_try_exists)]
-// Cuz am lazy
-use std::{env, fs, path::{Path}};
+use std::{env, path::{Path}};
 fn main() {
     // Confusing Naming Conventions.
     let arguments = env::args();
@@ -18,7 +16,7 @@ fn main() {
 /// - Does file already Exist \
 /// - Does text provided actually have an extension
 fn validate(filename: &str) -> bool {
-    let exist_already: bool = fs::try_exists(filename).unwrap();
+    let exist_already: bool = Path::new(filename).exists();
     let extension_exist: bool= Path::new(filename).extension().is_some();
     // Checks the return value
     if extension_exist == true {if exist_already == false {debug_print("Passed all Checks!"); true} else {debug_print("Failed check 2"); false}} else {debug_print("Failed check 1"); false}
