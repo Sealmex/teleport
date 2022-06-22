@@ -4,7 +4,7 @@
 # Features TODO
   - [ ] Finish it // *far from finished*
   - [ ] Listen to different addresses.
-  - [x] ~~Verbose~~ Debug output. *additional detail*
+  - [x] Verbose output. *additional detail*
   - [ ] Change the filename after transfer finish // *Maybe Implement by changing the filename after saving or maybe send the file without a set name?*
 
 ### Dev Logs
