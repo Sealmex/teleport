@@ -8,7 +8,7 @@ use teleport::special_print;
 struct Args {
     /// Send or Receive files
     operation: String,
-    /// File to send/receive
+    /// File to send/Name for the received file
     filename: String,
     /// Extra information
     #[clap(short, long)]
@@ -23,37 +23,37 @@ fn main() {
     } else {
         env::set_var("vb", "disabled")
     }
+    // Find New Solution!
+    let current_dir = env::current_dir().unwrap().to_str().unwrap().to_owned();
+    let file = current_dir + "/" + arguments.filename.as_str();
     if arguments.operation == "send" {
-        validate(arguments.filename.as_str(), "send");
-        teleport::send(arguments.filename.as_str())
+        validate(file.as_str(), "send");
+        teleport::send(file.as_str())
     } else if arguments.operation == "receive" {
-        teleport::receive()
+        validate(file.as_str(), "receive");
+        teleport::receive(file.as_str())
     } else {
-        eprintln!("Error: No Supplied Arguments!")
+        println!("Error: No Supplied Arguments!")
     }
 }
 /// ### Validate Filenames
 /// - Does file already Exist \
 /// - Does text provided actually have an extension \
+/// 
 /// *Case variable used only for the send operation cuz to send a file you **need** a file, so it changes the behavior on exist_already check*
-fn validate(filename: &str, case: &str) -> bool {
-    let mut exist_already: bool = Path::new(filename).exists();
-    let extension_exist: bool = Path::new(filename).extension().is_some();
-    // This if statement checks the operation type, if its "send" then it will change the exist_already value to false to pass the last if statement
-    if case == "send" {
-        exist_already = false
-    };
-    // If statement to actually check the 2 variable
-    if extension_exist == true {
-        if exist_already == false {
-            special_print("Passed all Checks!");
-            true
-        } else {
-            special_print("Failed check 2");
-            false
-        }
-    } else {
-        special_print("Failed check 1");
-        false
-    } // This kinda is more confusing?
+fn validate(file: &str, case: &str) {
+    special_print(format!("Path to file is {}", file).as_str());
+    let exist_already: bool = Path::new(file).exists();
+    let extension_exist: bool = Path::new(file).extension().is_some();
+    // New usecase, what if a user want to send a file without an extension?
+    match extension_exist {
+        true => {}
+        false => {panic!("Error: Provided filename doesn't have an extension!")}
+    }
+    // if it's a type "send" operation it will change the exist_already check to false so it doesn't panic but only if exist_already is set to true
+    match case {
+        "send" => {if exist_already == false {panic!("Error: {} doesn't exist!",file)}}
+        "receive" => {if exist_already == true {panic!("Error: File already exist! Delete file or change the filename")}}
+        _ => {} // Should be fine!
+    }
 }
